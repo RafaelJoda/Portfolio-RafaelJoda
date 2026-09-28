@@ -1,70 +1,75 @@
-# Portfólio — Rafael Joda
+# Portfólio | Rafael Joda
 
-Site completo em HTML, CSS e JavaScript, pronto para edição. Não é um projeto Next.js e não precisa de npm install nem de compilação.
+Meu portfólio de desenvolvimento de software, com projetos, certificados e formas de contato.
 
-## Publicar na Vercel
+**[Acessar o portfólio](https://rafaeljodaporfolio.vercel.app/)**
 
-1. Extraia o ZIP e abra a pasta `portfolio-rafael-joda`.
-2. Coloque o conteúdo dessa pasta em um repositório no GitHub. `vercel.json` e `public/` devem ficar na raiz do repositório.
-3. Na Vercel, crie um projeto e importe o repositório.
-4. Use Framework Preset **Other**, Build Command vazio e Output Directory **public**. O arquivo `vercel.json` já define o diretório de saída.
-5. Clique em Deploy.
+## Sobre mim
 
-Se você subir a pasta inteira dentro do repositório, selecione `portfolio-rafael-joda` como Root Directory.
+Sou estudante de Engenharia de Software na FIAP e busco uma oportunidade de estágio em desenvolvimento de software. Desenvolvo projetos web com React, TypeScript e Node.js, além de projetos acadêmicos com Python e análise de dados.
 
-Alternativa pelo terminal, dentro desta pasta: `npx vercel --prod`.
+## O que você encontra no site
 
-Documentação: https://vercel.com/docs/builds/configure-a-build
+- Projetos com opção de ver mais ou recolher a lista.
+- Página separada de certificados.
+- Temas claro e escuro com transição de cores.
+- Navegação com rolagem suave e animações de interface.
+- Personagem animado no rodapé e sons opcionais de interação.
+- Formulário de contato e links para LinkedIn, e-mail e telefone.
 
-## Rodar localmente
+## Tecnologias deste repositório
 
-Abra esta pasta no VS Code. No terminal, execute:
+O site usa **HTML, CSS e JavaScript**, sem etapa de compilação. Os sons de interação usam a Web Audio API. O formulário utiliza o serviço externo FormSubmit, e a hospedagem é feita na Vercel.
+
+## Estrutura
+
+| Arquivo ou pasta | Função |
+| --- | --- |
+| `public/index.html` | Página principal e conteúdo do portfólio |
+| `public/styles.css` | Estilos, temas e animações |
+| `public/app.js` | Interações, projetos e formulário |
+| `public/avatar.png` | Imagem do personagem |
+| `public/certificados/` | Página, script e imagens dos certificados |
+| `vercel.json` | Configuração de publicação da pasta `public` |
+
+## Executar localmente
+
+Com Git e Python 3 instalados:
 
 ```bash
+git clone https://github.com/RafaelJoda/Portfolio-RafaelJoda.git
+cd Portfolio-RafaelJoda
 python -m http.server 8000 --directory public
 ```
 
-No Windows, se `python` não funcionar, tente `py -m http.server 8000 --directory public`.
+No macOS ou Linux, use `python3` se necessário. Abra [localhost:8000](http://localhost:8000). Para encerrar o servidor, pressione `Ctrl+C`.
 
-Abra http://localhost:8000 no navegador. A página de certificados fica em http://localhost:8000/certificados/.
+## Publicar na Vercel
 
-Use um servidor local: abrir index.html com duplo clique pode quebrar caminhos que começam com `/`.
+1. Envie os arquivos para o repositório no GitHub, mantendo `public` e `vercel.json` na raiz.
+2. Importe o repositório na Vercel.
+3. Selecione **Other** como framework, deixe o comando de build vazio e defina **public** como diretório de saída.
+4. Publique. As próximas alterações enviadas à branch de produção gerarão novos deploys.
 
-## Onde editar
+A página de certificados está em `certificados/index.html`. Preserve esse arquivo e os links relativos ao mover o projeto.
 
-| Arquivo | Conteúdo |
-| --- | --- |
-| public/index.html | Textos, projetos, menu, contatos e formulário |
-| public/styles.css | Cores, layout, responsividade e animações das duas páginas |
-| public/app.js | Tema, áudio, scroll, detalhes dos projetos, ver mais/menos e envio do formulário |
-| public/avatar.png | Personagem usado no topo e no rodapé |
-| public/certificados/index.html | Página dos sete certificados |
-| public/certificados/page.js | Alternância animada de tema na página de certificados |
-| public/certificados/certificado-1.png até certificado-7.png | Imagens originais dos certificados |
-| vercel.json | Configuração de publicação |
+## Personalizar
 
-Os quatro primeiros projetos ficam diretamente na seção `projetos`. Os cinco extras estão dentro de `additional-projects`. Se adicionar ou remover projetos, ajuste também os contadores e textos no HTML e no final de `app.js`.
-
-As descrições dos quatro projetos com janela de detalhes estão no objeto `projects` de `app.js`.
-
-O CSS mantém ajustes sucessivos: em caso de regras repetidas, as regras mais abaixo prevalecem. As cores ficam nas variáveis de `:root` (escuro) e `html[data-theme=light]` (claro).
+- Edite os textos e links da página em `public/index.html`.
+- Ajuste cores, espaçamentos e efeitos em `public/styles.css`.
+- Atualize os dados e comportamentos dos projetos em `public/app.js`.
+- Para alterar certificados, revise `public/certificados/index.html`, `page.js` e as imagens da pasta.
 
 ## Formulário de contato
 
-Destino: **rafaeljoda06@outlook.com**. O formulário usa o serviço externo FormSubmit; não requer chave de API neste projeto.
+O destinatário é **rafaeljoda06@outlook.com**. O FormSubmit exige a ativação pelo e-mail enviado ao destinatário no primeiro uso. Após publicar, faça um envio de teste, confira a caixa de entrada e o spam e conclua a ativação solicitada. Um novo domínio pode exigir nova confirmação.
 
-Após publicar na Vercel, envie uma mensagem de teste e confirme a ativação recebida no Outlook (verifique o spam). Um novo domínio pode exigir nova ativação. A aceitação pelo serviço não confirma a entrega na caixa de entrada; confira o recebimento de uma segunda mensagem após ativar.
+A entrega real precisa ser conferida na caixa de entrada; a mensagem de sucesso da interface, sozinha, não confirma o recebimento. Se trocar o destinatário, atualize a configuração em `public/app.js` e repita o teste.
 
-O endereço de destino está no HTML e no `fetch` de `app.js`. Atualize ambos se precisar trocá-lo. O JavaScript já usa o domínio atual como origem do formulário.
+## Contato
 
-O site mostra um estado de erro e preserva o texto se a requisição não puder ser confirmada. O link de e-mail direto continua disponível.
-
-## Incluído
-
-- Nove projetos, com quatro visíveis e cinco no botão Ver mais.
-- Página separada com sete certificados e seis links de credenciais.
-- O certificado de Excel pode ser ampliado pela imagem, mas não possui link de validação cadastrado.
-- Tema claro e escuro, scroll suave, personagem animado e sons opcionais.
-- LinkedIn, e-mail e telefone.
-
-Este pacote é uma cópia independente da versão publicada no ChatGPT. Editá-lo ou publicá-lo na Vercel não altera automaticamente aquela versão, e vice-versa.
+- [Portfólio](https://rafaeljodaporfolio.vercel.app/)
+- [LinkedIn](https://www.linkedin.com/in/rafael-joda)
+- [GitHub](https://github.com/RafaelJoda)
+- [rafaeljoda06@outlook.com](mailto:rafaeljoda06@outlook.com)
+- [Telefone: (11) 97044-4072](tel:+5511970444072)
